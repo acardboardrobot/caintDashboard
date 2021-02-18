@@ -1,0 +1,60 @@
+@page
+@model caintDashboard.Pages.Comments.IndexModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<a asp-page="./Index"><div class="pageTitle"><h1>Dashboard</h1></div></a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment[0].id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment[0].name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment[0].body)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment[0].threadId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Comment[0].approved)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Comment) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.body)
+            </td>
+            <td>
+                <a asp-page-handler="ThreadView" asp-route-id="@item.threadId">
+                @Html.DisplayFor(modelItem => item.threadId)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.approved)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.id">Details</a> |
+                <a asp-page-handler="DeleteComment" asp-route-id="@item.id">Delete</a> |
+                <a asp-page-handler="ApproveComment" asp-route-id="@item.id">Approve</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
