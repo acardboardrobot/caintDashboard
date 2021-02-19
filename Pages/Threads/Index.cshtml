@@ -2,17 +2,17 @@
 @model caintDashboard.Pages.Threads.IndexModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Threads";
 }
 
-<h1>Index</h1>
+<a asp-page="./Index"><div class="pageTitle"><h1>Threads</h1></div></a>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Thread[0].id)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Thread[0].hostname)
             </th>
@@ -25,6 +25,11 @@
     <tbody>
 @foreach (var item in Model.Thread) {
         <tr>
+            <td>
+                <a class="nav-link" asp-area="" asp-page="/Comments/Index" asp-page-handler="ThreadView" asp-route-id="@item.id">
+                @Html.DisplayFor(modelItem => item.id)
+                </a>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.hostname)
             </td>
