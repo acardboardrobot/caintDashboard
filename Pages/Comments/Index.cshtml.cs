@@ -12,9 +12,9 @@ namespace caintDashboard.Pages.Comments
 {
     public class IndexModel : PageModel
     {
-        private readonly caint.Data.caintDBContext _context;
+        private readonly caintDBContext _context;
 
-        public IndexModel(caint.Data.caintDBContext context)
+        public IndexModel(caintDBContext context)
         {
             _context = context;
         }
