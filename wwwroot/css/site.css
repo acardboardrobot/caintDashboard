@@ -137,6 +137,10 @@ button:hover, input[type="submit"]:hover{
   color: #555;
 }
 
+.navbarRightFloat{
+  float: right;
+}
+
 .pageTitle{
   padding-left: 5%;
 }
