@@ -23,7 +23,8 @@ namespace caintDashboard.Pages.Threads
 
         public async Task OnGetAsync()
         {
-            Thread = await _context.threads.ToListAsync();
+            var ownerId = UserManager.GetUserId(User);
+            Thread = await _context.threads.Where(x => x.ownerId == ownerId).ToListAsync();
         }
     }
 }

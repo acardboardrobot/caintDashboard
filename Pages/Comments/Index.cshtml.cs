@@ -7,16 +7,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using caint.Data;
 using caint.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace caintDashboard.Pages.Comments
 {
-    public class IndexModel : PageModel
+    public class IndexModel : dashboard_BasePageModel
     {
-        private readonly caintDBContext _context;
 
-        public IndexModel(caintDBContext context)
+        public IndexModel(
+            caintDBContext context,
+            IAuthorizationService authorizationService,
+            UserManager<IdentityUser> userManager)
+            : base(context, authorizationService, userManager)
         {
-            _context = context;
         }
 
         public IList<Comment> Comment { get;set; }
@@ -24,7 +28,8 @@ namespace caintDashboard.Pages.Comments
 
         public async Task OnGetAsync()
         {
-            Comment = await _context.comments.ToListAsync();
+            var ownerId = UserManager.GetUserId(User);
+            Comment = await _context.comments.Where(x => x.ownerId == ownerId).ToListAsync();
         }
 
         public async Task OnGetThreadViewAsync(long? id)
