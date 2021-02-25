@@ -13,5 +13,6 @@ namespace caint.Data
         public DbSet<Comment> comments { get; set; }
         public DbSet<Thread> threads { get; set; }
         public DbSet<Tenant> tenants { get; set; }
+        public DbSet<User> tenantAdmins { get; set; }
     }
 }
