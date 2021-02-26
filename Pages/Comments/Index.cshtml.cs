@@ -37,6 +37,12 @@ namespace caintDashboard.Pages.Comments
             Comment = await _context.comments.Where(x => x.threadId == id).ToListAsync();
         }
 
+        public async Task OnGetUnapprovedAsync()
+        {
+            var ownerId = UserManager.GetUserId(User);
+            Comment = await _context.comments.Where(x => x.ownerId == ownerId && x.approved == false).ToListAsync();
+        }
+
         public async Task<IActionResult> OnGetApproveCommentAsync(long? id)
         {
 
