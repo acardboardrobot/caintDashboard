@@ -7,23 +7,29 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using caint.Data;
 using caint.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace caintDashboard.Pages.Tenants
 {
-    public class IndexModel : PageModel
+    public class IndexModel : dashboard_BasePageModel
     {
-        private readonly caint.Data.caintDBContext _context;
 
-        public IndexModel(caint.Data.caintDBContext context)
+        public IndexModel(
+            caintDBContext context,
+            IAuthorizationService authorizationService,
+            UserManager<IdentityUser> userManager)
+            : base(context, authorizationService, userManager)
         {
-            _context = context;
         }
 
         public IList<Tenant> Tenant { get;set; }
 
         public async Task OnGetAsync()
         {
-            Tenant = await _context.tenants.ToListAsync();
+            var ownerId = UserManager.GetUserId(User);
+
+            Tenant = await _context.tenants.Where(x => x.ownerId == ownerId).ToListAsync();
         }
     }
 }
