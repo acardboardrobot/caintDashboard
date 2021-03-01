@@ -8,16 +8,19 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using caint.Data;
 using caint.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 
 namespace caintDashboard.Pages.Threads
 {
-    public class EditModel : PageModel
+    public class EditModel : dashboard_BasePageModel
     {
-        private readonly caint.Data.caintDBContext _context;
-
-        public EditModel(caint.Data.caintDBContext context)
+        public EditModel(
+            caintDBContext context,
+            IAuthorizationService authorizationService,
+            UserManager<IdentityUser> userManager)
+            : base(context, authorizationService, userManager)
         {
-            _context = context;
         }
 
         [BindProperty]
@@ -47,6 +50,8 @@ namespace caintDashboard.Pages.Threads
             {
                 return Page();
             }
+
+            Thread.ownerId = UserManager.GetUserId(User);
 
             _context.Attach(Thread).State = EntityState.Modified;
 

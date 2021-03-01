@@ -19,6 +19,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Thread[0].path)
             </th>
+            <th>
+                Automatically approve comments
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -35,6 +38,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.path)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.noApproval)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.id">Edit</a> |
