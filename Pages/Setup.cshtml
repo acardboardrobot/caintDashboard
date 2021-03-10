@@ -1,0 +1,27 @@
+@page
+@model SetupModel
+@{
+    ViewData["Title"] = "Site Setup";
+}
+<div class="centreBit">
+
+    <h1>@ViewData["Title"]</h1>
+
+    <h2>Step 0.</h2>
+    <p>First off, you're going to want to get the files for your server <a href="https://git.sr.ht/~jpgleeson/caint-redist/tree">here</a>. You only NEED the .js, the css is a nice set of defaults for comment threads, but you can do your own in your own css file.</p>
+
+    <h2>Step 1.</h2>
+    <p>Register your first siteName with caint.casa. This is done through the site tab at the top of the dashboard. If you try to reregister a sitename already in use, nothing will show up so just try again with a different one.</p>
+
+    <h2>Step 2.</h2>
+    <p>Once you have your first site setup, you're going to need to add the sitename you just created at the last step into your caint.js file, as the threadHost variable. Make sure you capture it within quotation marks ("these guys").</p>
+
+    <h2>Step 3.</h2>
+    <p>Include the js file into your pages, caint.casa takes care of the rest. As a page on your site is first visited, caint.casa will create a corresponding thread for that page, if you want to set that thread's comments to automatically be approved, you can do that from your dashboard.</p>
+
+    <h2>Step 3.5.</h2>
+    <p>Caint.casa has a basic css style for use if you don't want to customise it. You can find that <a href="https://git.sr.ht/~jpgleeson/caint-redist/tree">here</a> if you want to use it, either as is, or as a starting point for your own work.</p>
+
+    <h2>Step 4.</h2>
+    <p>That's it. You're good to go. Use your dashboard to manage comments and threads, and even make extra sites under your name.</p>
+</div>

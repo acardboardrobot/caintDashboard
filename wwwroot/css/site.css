@@ -144,3 +144,8 @@ button:hover, input[type="submit"]:hover{
 .pageTitle{
   padding-left: 5%;
 }
+
+.centreBit{
+  padding-left: 20%;
+  padding-right: 20%;
+}
