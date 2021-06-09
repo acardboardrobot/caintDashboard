@@ -6,6 +6,22 @@
 
 <div class="centreBit">
     <h1 class="display-4">Welcome to caint.casa delicious friend</h1>
-    <p>This is the <a href="https://www.caint.casa">caint.casa</a> dashboard. Use the items in the bar above to manage your sites.</p>
+    <div class="display-4">
+        <a class="btn" href="../Comments?handler=Unapproved">@Model.unapprovedCount unapproved comments.</a>
+
+        <h3>Recent Comments</h3>
+        <div class="commentSnap">
+            @foreach (var item in Model.Comment) {
+            <div class="commentIndividual">To: <a asp-page="./Comments/Index" asp-page-handler="ThreadView" asp-route-id="@item.threadId"> @Html.DisplayFor(modelItem => item.threadId)</a><br>
+                <div class="commentQuote">
+                    <div class="username">@Html.DisplayFor(modelItem => item.name)</div>
+                    <p>@Html.DisplayFor(modelItem => item.body)</p>
+                </div>
+            </div>
+            }
+        </div>
+    </div>
+    <p>This is the <a href="https://www.caint.casa">caint.casa</a> dashboard. Use the items in the bar above to
+        manage your sites.</p>
     <p>If you have not set up a tenant name for your site, you can do that <a asp-page="/Tenants/Index">here.</a></p>
 </div>
