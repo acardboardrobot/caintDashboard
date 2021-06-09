@@ -149,3 +149,37 @@ button:hover, input[type="submit"]:hover{
   padding-left: 20%;
   padding-right: 20%;
 }
+
+.btn {
+	background: #0366d6;
+	padding: 0.5em;
+	color: #ffffff;
+	text-decoration: none;
+	border: solid #000 1px;
+	border-radius: 3px;
+}
+
+.btn:hover{
+  background: #09B0ED;
+}
+
+.commentSnap {
+	padding: 0.5em;
+	border: 1px solid;
+}
+
+.commentIndividual {
+	padding-top: 0.5em;
+	border: 1px dotted;
+	margin-bottom: 0.5em;
+}
+
+.commentQuote {
+	background: #efefef;
+	padding: 0.5em;
+}
+
+.username {
+	font-weight: bold;
+	color: #1e1e1e;
+}
