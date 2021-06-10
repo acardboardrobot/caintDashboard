@@ -5,15 +5,11 @@
 
 @if (SignInManager.IsSignedIn(User))
 {
-    <div class="navbarRightFloat">
-        <a class="nav-link" id="manage" asp-area="Identity" asp-page="/Account/Manage/Index"><div class ="headerTitle">@UserManager.GetUserName(User)</div></a>
-        <a class="nav-link" id="logout" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnURL="@Url.Page("Index", new {area = "" })"><div class ="headerTitle">Logout</div></a>
-    </div>
+    <a class="nav-link" id="manage" asp-area="Identity" asp-page="/Account/Manage/Index"><div class ="headerTitle">@UserManager.GetUserName(User)</div></a>
+    <a class="nav-link" id="logout" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnURL="@Url.Page("Index", new {area = "" })"><div class ="headerTitle">Logout</div></a>
 }
 else
 {
-    <div class="navbarRightFloat">
-        <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register"><div class ="headerTitle">Register</div></a>
-        <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login"><div class ="headerTitle">Login</div></a>
-    </div>
+    <a class="nav-link" id="register" asp-area="Identity" asp-page="/Account/Register"><div class ="headerTitle">Register</div></a>
+    <a class="nav-link" id="login" asp-area="Identity" asp-page="/Account/Login"><div class ="headerTitle">Login</div></a>
 }

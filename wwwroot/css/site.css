@@ -123,17 +123,15 @@ button:hover, input[type="submit"]:hover{
 }
 
 .full-width-Header{
-  margin-bottom: 1em;
-  padding-bottom: 1em;
   width: 100%;
-  height: 2em;
   border-bottom: 2px solid lightcoral;
 }
+
 .nav-link{
   display: inline-block;
   padding-left: 5%;
   padding-right: 5%;
-  padding-bottom: 5%;
+  padding-bottom: 2em;
   color: #555;
 }
 
@@ -143,6 +141,12 @@ button:hover, input[type="submit"]:hover{
 
 .pageTitle{
   padding-left: 5%;
+}
+
+.centreLeft {
+	margin-left: 20%;
+	margin-right: 20%;
+	display: block;
 }
 
 .centreBit{
