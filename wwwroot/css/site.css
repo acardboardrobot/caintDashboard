@@ -144,8 +144,9 @@ button:hover, input[type="submit"]:hover{
 }
 
 .centreLeft {
-	margin-left: 20%;
-	margin-right: 20%;
+	margin-left: auto;
+	margin-right: auto;
+  width: 60%;
 	display: block;
 }
 
